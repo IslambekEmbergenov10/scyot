@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Stations from './components/Stations';
-import Journals from './components/Journals';
-import About from './components/About';
-import Profile from './components/Profile';
-import Adminom from './components/Adminom';
-import Login from './components/Login';
-import Register from './components/Register';
+import Stations from './features/station/Stations';
+import Journals from './features/journal/Journals';
+import About from './pages/About';
+import Profile from './features/auth/Profile';
+import Adminom from './features/admin/Adminom';
+import Login from './features/auth/Login';
+import Register from './features/auth/Register';
 
 function App() {
   return (

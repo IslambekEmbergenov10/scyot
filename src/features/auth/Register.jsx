@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon, EnvelopeIcon, LockClosedIcon, UserIcon, PhoneIcon } from '@heroicons/react/24/outline';
-import LogoMain from '../assets/temir.png';
+import LogoMain from '../../assets/temir.png';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ const Register = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear error when user starts typing
+    
     if (errors[e.target.name]) {
       setErrors({
         ...errors,

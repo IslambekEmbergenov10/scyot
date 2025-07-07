@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon, EnvelopeIcon, LockClosedIcon } from '@heroicons/react/24/outline';
-import LogoMain from '../assets/temir.png';
+import LogoMain from '../../assets/temir.png';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -22,10 +22,8 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      // Handle login logic here
       console.log('Login attempt:', formData);
     }, 2000);
   };
@@ -33,7 +31,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-8">
-        {/* Logo and Header */}
+      
         <div className="text-center">
           <img src={LogoMain} alt="Logo" className="mx-auto h-16 w-auto mb-6" />
           <h2 className="text-3xl font-bold text-white mb-2">
@@ -44,26 +42,26 @@ const Login = () => {
           </p>
         </div>
 
-        {/* Login Form */}
+        
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
-            {/* Email Field */}
+            
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <EnvelopeIcon className="h-5 w-5 text-gray-400" />
               </div>
               <input
-                name="email"
-                type="email"
-                required
+                name="username"
+                type="text"
+                required  
                 className="appearance-none relative block w-full px-3 py-3 pl-10 border border-gray-600 placeholder-gray-400 text-white bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                placeholder="Email manzil"
-                value={formData.email}
+                placeholder="Username"
+                value={formData.username}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Password Field */}
+            
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <LockClosedIcon className="h-5 w-5 text-gray-400" />
@@ -91,7 +89,6 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Remember Me and Forgot Password */}
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
