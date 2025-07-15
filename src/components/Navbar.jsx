@@ -20,16 +20,16 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/login">
+          {/* <Link to="/login">
             <button className="text-white hover:text-blue-300 transition-colors px-4 py-2">
-              Kirish
+              Войти
             </button>
           </Link>
           <Link to="/register">
             <button className="bg-[#1A3E3E] px-4 py-2 rounded text-white hover:bg-[#2A4E4E] transition-colors">
-              Ro'yxatdan o'tish
+              Регистрация
             </button>
-          </Link>
+          </Link> */}
           <Link to="/adminom">
             <button className="bg-[#1A3E3E] px-4 py-2 rounded text-white hover:bg-[#2A4E4E] transition-colors">
               Для связи с админом
@@ -56,20 +56,20 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md border-t border-gray-700">
           <div className="px-4 py-6 space-y-4">
-            <Link
+            {/* <Link
               to="/login"
               onClick={() => setIsMenuOpen(false)}
               className="block text-white hover:text-blue-300 transition-colors py-2"
             >
-              Kirish
+              Войти
             </Link>
             <Link
               to="/register"
               onClick={() => setIsMenuOpen(false)}
               className="block text-white hover:text-blue-300 transition-colors py-2"
             >
-              Ro'yxatdan o'tish
-            </Link>
+              Регистрация
+            </Link> */}
             <Link
               to="/adminom"
               onClick={() => setIsMenuOpen(false)}

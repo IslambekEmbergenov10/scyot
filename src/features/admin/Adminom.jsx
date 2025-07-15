@@ -9,8 +9,8 @@ const Adminom = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Yuborilgan:', form);
-    alert("✅ Xabaringiz yuborildi! Tez orada siz bilan bog'lanamiz.");
+    console.log('Отправлено:', form);
+    alert("✅ Ваше сообщение отправлено! Мы свяжемся с вами в ближайшее время.");
     setForm({ name: '', email: '', message: '' });
   };
 

@@ -15,7 +15,7 @@ const Profil = () => {
     <div className="w-full min-h-screen bg-gradient-to-br from-[#85e5e9] to-[#145858] text-white px-4 py-10">
       <div className="max-w-[800px] mx-auto bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-md">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6">
-          Profil Ma'lumotlari
+          Данные профиля
         </h1>
 
         {user ? (
@@ -29,14 +29,14 @@ const Profil = () => {
 
             {/* Ma’lumotlar */}
             <div className="space-y-2 text-lg">
-              <p><span className="font-bold">Ismi:</span> {user.name}</p>
+              <p><span className="font-bold">Имя:</span> {user.name}</p>
               <p><span className="font-bold">Email:</span> {user.email}</p>
-              <p><span className="font-bold">Lavozimi:</span> {user.role}</p>
-              <p><span className="font-bold">Telefon:</span> {user.phone}</p>
+              <p><span className="font-bold">Должность:</span> {user.role}</p>
+              <p><span className="font-bold">Teлефон:</span> {user.phone}</p>
             </div>
           </div>
         ) : (
-          <p className="text-center text-white/80">Yuklanmoqda...</p>
+          <p className="text-center text-white/80">Загружается...</p>
         )}
       </div>
     </div>

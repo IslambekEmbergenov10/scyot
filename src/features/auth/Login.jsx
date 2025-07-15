@@ -5,8 +5,8 @@ import LogoMain from '../../assets/temir.png';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: 'abbos', // static berdm 
+    password: 'abbos2009' // static berdm 
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,31 +21,67 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
     
-    setTimeout(() => {
+    // try {
+    //   // ✅ Backend API manzilini o'zingizning URL bilan almashtiring
+    //   const response = await fetch('https://your-backend-api.com/api/login', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(formData)
+    //   });
+
+    //   const data = await response.json();
+
+    //   if (response.ok && data.token && data.role) {
+    //     // Token va role ni saqlaymiz
+    //     localStorage.setItem('token', data.token);
+    //     localStorage.setItem('role', data.role); // 👈 Rolni saqlaymiz
+
+    //     // Masalan, foydalanuvchini dashboard sahifasiga yo'naltirish
+    //     window.location.href = '/dashboard';
+    //   } else {
+    //     alert('Login xatosi: ' + (data.message || 'Noto‘g‘ri foydalanuvchi yoki parol'));
+    //   }
+    // } catch (error) {
+    //   console.error('Login error:', error);
+    //   alert('Serverga ulanishda xatolik');
+    // } finally {
+    //   setIsLoading(false);
+    // }
+
+    try {
+      //static
+      if (formData.username === 'abbos' && formData.password === 'abbos2009') {
+        localStorage.setItem('token', 'mock-token');
+        localStorage.setItem('role', 'user'); 
+        window.location.href = '/'; 
+      } else {
+        alert('Login yoki parol noto‘g‘ri');
+      }
+    } catch (error) {
+      console.error('Xatolik:', error);
+      alert('Xatolik yuz berdi');
+    } finally {
       setIsLoading(false);
-      console.log('Login attempt:', formData);
-    }, 2000);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-8">
-      
         <div className="text-center">
           <img src={LogoMain} alt="Logo" className="mx-auto h-16 w-auto mb-6" />
           <h2 className="text-3xl font-bold text-white mb-2">
-            Tizimga kirish
+            Войти в систему
           </h2>
           <p className="text-gray-300">
-            Hisobingizga kirish uchun ma'lumotlaringizni kiriting
+            Введите свои данные, чтобы войти в свою учетную запись
           </p>
         </div>
 
-        
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
-            
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <EnvelopeIcon className="h-5 w-5 text-gray-400" />
@@ -53,7 +89,7 @@ const Login = () => {
               <input
                 name="username"
                 type="text"
-                required  
+                required
                 className="appearance-none relative block w-full px-3 py-3 pl-10 border border-gray-600 placeholder-gray-400 text-white bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 placeholder="Username"
                 value={formData.username}
@@ -61,7 +97,6 @@ const Login = () => {
               />
             </div>
 
-            
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <LockClosedIcon className="h-5 w-5 text-gray-400" />
@@ -98,17 +133,19 @@ const Login = () => {
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-600 rounded bg-gray-800"
               />
               <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-300">
-                Meni eslab qol
+                Запомни меня
               </label>
             </div>
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-400 hover:text-blue-300 transition-colors">
-                Parolni unutdingizmi?
-              </a>
+              <Link
+                to="/forgot-password"
+                className="font-medium text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Забыли пароль?
+              </Link>
             </div>
           </div>
 
-          {/* Submit Button */}
           <div>
             <button
               type="submit"
@@ -118,23 +155,22 @@ const Login = () => {
               {isLoading ? (
                 <div className="flex items-center">
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                  Kirish...
+                  Войти...
                 </div>
               ) : (
-                'Tizimga kirish'
+                'Авторизоваться'
               )}
             </button>
           </div>
 
-          {/* Register Link */}
           <div className="text-center">
             <p className="text-gray-300">
-              Hisobingiz yo'qmi?{' '}
+              Нет аккаунта?{' '}
               <Link
                 to="/register"
                 className="font-medium text-blue-400 hover:text-blue-300 transition-colors"
               >
-                Ro'yxatdan o'ting
+                Зарегистрироваться
               </Link>
             </p>
           </div>
@@ -144,4 +180,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;

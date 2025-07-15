@@ -1,7 +1,7 @@
 import $api from "../request";
 
 const login = async (username, password) => {
-  const response = await $api.post("/auth/login", { username, password });
+  const response = await $api.post("/api/v1/auth-user/login", { username, password });
 
   if (response.status === 200) {
     localStorage.setItem("token", response.data.access_token);
@@ -20,6 +20,7 @@ const logout = async () => {
   }
 
   return response.data;
+  
 };
 
 const refreshToken = async () => {
